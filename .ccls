@@ -1,0 +1,10 @@
+clang++
+%cpp -std=c++11
+%hpp -x c++-header
+-std=gnu++98
+-Wall -fexceptions -g -w -Iheaders -Llib
+-Iheaders
+-Isources
+-Isrc
+-I./headers
+-I.
