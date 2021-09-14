@@ -7,7 +7,6 @@ Dino::Dino() {
 
     m_sprite.setTexture(m_texture);
     m_sprite.setTextureRect(sf::IntRect(848, 2, 44, 50));
-    // m_sprite.setScale(2, 2);
 }
 
 Dino::~Dino() {}

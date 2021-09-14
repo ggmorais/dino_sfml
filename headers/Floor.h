@@ -3,7 +3,9 @@
 
 class Floor {
     sf::Texture m_texture;
-    sf::Sprite m_sprite;
+    std::vector<sf::Sprite> m_sprites;
+    
+    float m_speed = 2.f;
 
     public:
         Floor();

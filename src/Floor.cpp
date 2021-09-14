@@ -5,9 +5,13 @@ Floor::Floor() {
         std::cerr << "Error loading floor's texture!" << std::endl;
     }
 
-    m_sprite.setTexture(m_texture);
-    m_sprite.setTextureRect(sf::IntRect(2, 52, 1200, 16));
-    // m_sprite.setScale(2, 2);
+    for (int i = 0; i <= 1; i++) {
+        sf::Sprite sprite;
+        sprite.setTexture(m_texture);
+        sprite.setTextureRect(sf::IntRect(2, 52, 1200, 16));
+        sprite.setScale(2, 2);
+        m_sprites.push_back(sprite);
+    }
 }
 
 Floor::~Floor() {
@@ -15,14 +19,24 @@ Floor::~Floor() {
 }
 
 void Floor::update(sf::RenderTarget& target) {
-    if (m_sprite.getPosition().y == 0) {
-        m_sprite.setPosition(
-            0.f,
-            target.getSize().y - m_sprite.getGlobalBounds().height
-        );
+    for (int i = 0; i <= 1; i++) {
+        if (m_sprites[i].getPosition().y == 0) {
+            m_sprites[i].setPosition(
+                m_sprites[i].getGlobalBounds().width * i,
+                target.getSize().y - m_sprites[i].getGlobalBounds().height
+            );
+        }
+
+        if (m_sprites[i].getPosition().x <= -m_sprites[i].getGlobalBounds().width) {
+            m_sprites[i].setPosition(m_sprites[i].getGlobalBounds().width, m_sprites[i].getPosition().y);
+        }
+
+        m_sprites[i].move(-m_speed, 0.f);
     }
 }
 
 void Floor::render(sf::RenderTarget& target) {
-    target.draw(m_sprite);
+    for (auto sprite : m_sprites) {
+        target.draw(sprite);
+    }
 }
