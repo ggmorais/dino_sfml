@@ -34,8 +34,8 @@ void Game::render() {
     p_window->clear(sf::Color(32, 33, 36));
     
     p_background->render(*p_window);
-    p_dino->render(*p_window);
     p_floor->render(*p_window);
+    p_dino->render(*p_window);
 
     p_window->display();
 }
@@ -44,6 +44,6 @@ void Game::update() {
     pollEvents();
 
     p_dino->update(*p_window);
-    p_floor->update(*p_window);
+    p_floor->update(*p_window, m_speed);
 }
 

@@ -18,7 +18,7 @@ Floor::~Floor() {
 
 }
 
-void Floor::update(sf::RenderTarget& target) {
+void Floor::update(sf::RenderTarget& target, float speed) {
     for (int i = 0; i <= 1; i++) {
         if (m_sprites[i].getPosition().y == 0) {
             m_sprites[i].setPosition(
@@ -31,7 +31,7 @@ void Floor::update(sf::RenderTarget& target) {
             m_sprites[i].setPosition(m_sprites[i].getGlobalBounds().width, m_sprites[i].getPosition().y);
         }
 
-        m_sprites[i].move(-m_speed, 0.f);
+        m_sprites[i].move(-speed, 0.f);
     }
 }
 

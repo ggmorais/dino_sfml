@@ -14,8 +14,10 @@ Dino::~Dino() {}
 void Dino::update(sf::RenderTarget& target) {
     if (m_sprite.getPosition().x == 0) {
         m_sprite.setPosition(
-            target.getSize().x / 2 - m_sprite.getGlobalBounds().width / 2,
-            target.getSize().y / 2 - m_sprite.getGlobalBounds().height / 2
+            // target.getSize().x / 2 - m_sprite.getGlobalBounds().width / 2,
+            m_sprite.getGlobalBounds().width + 10,
+            target.getSize().y - m_sprite.getGlobalBounds().height - 10
+            // target.getSize().y / 2 - m_sprite.getGlobalBounds().height / 2
         );
     }
 }

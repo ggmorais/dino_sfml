@@ -10,6 +10,8 @@ class Game {
     Dino* p_dino;
     Floor* p_floor;
     Background* p_background;
+    
+    float m_speed = 2.f;
 
     public:
         Game();

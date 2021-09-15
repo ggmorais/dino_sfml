@@ -1,14 +1,15 @@
 #pragma once
 #include "pch.h"
 
-class Floor {
+class Cactus {
     sf::Texture m_texture;
-    std::vector<sf::Sprite> m_sprites;
+    sf::Sprite m_sprite;
 
     public:
-        Floor();
-        ~Floor();
+        Cactus();
+        ~Cactus();
 
         void update(sf::RenderTarget& target, float speed);
         void render(sf::RenderTarget& target);
 };
+
